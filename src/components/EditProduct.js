@@ -1,4 +1,13 @@
+import { useSelector } from "react-redux";
+
 const EditProduct = () => {
+
+    // Product to edit
+    const product = useSelector( state => state.products.editproduct );
+
+    if (!product) return null;
+    const { name, price, id } = product;
+
     return (  
         <div className="row justify-content-center">
             <div className="col-md-8">
@@ -16,6 +25,7 @@ const EditProduct = () => {
                                     className="form-control"
                                     placeholder="Product Name"
                                     name="name"
+                                    value={name}
                                 />
                             </div>
 
@@ -26,6 +36,7 @@ const EditProduct = () => {
                                     className="form-control"
                                     placeholder="Product Price"
                                     name="price"
+                                    value={price}
                                 />
                             </div> 
 
