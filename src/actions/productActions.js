@@ -1,7 +1,10 @@
 import {
     ADD_PRODUCT,
     ADD_PRODUCT_SUCCESS,
-    ADD_PRODUCT_ERROR
+    ADD_PRODUCT_ERROR,
+    START_PRODUCT_DOWNLOAD,
+    PRODUCT_DOWNLOAD_SUCCESS,
+    PRODUCT_DOWNLOAD_ERROR
 } from "../types";
 import axiosClient from "../config/axios";
 import Swal from "sweetalert2";
@@ -13,7 +16,7 @@ export function createNewProductAction(product) {
 
         try {
             // Insert in API
-            await axiosClient.post('/produdcts', product);
+            await axiosClient.post('/products', product);
 
             // If all went ok, update state
             dispatch( addProductSuccess(product) );
@@ -54,4 +57,18 @@ const addProductSuccess = product => ({
 const addProductError = status => ({
     type: ADD_PRODUCT_ERROR,
     payload: status
+})
+
+// Function to download the products from database
+export function getProductsAction() => {
+    return async (dispatch) => {
+        dispatch( downloadProducts() );
+
+  
+    }
+}
+
+const downloadProducts = () => ({
+    type: START_PRODUCT_DOWNLOAD,
+    payload: true
 })
