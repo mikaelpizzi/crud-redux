@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { showAlertAction } from "../actions/alertActions";
 import { createNewProductAction } from "../actions/productActions";
 
 const NewProduct = () => {
@@ -28,6 +29,13 @@ const NewProduct = () => {
 
         // Validate form
         if (name.trim() === '' || price <= 0 ) {
+
+            const alert = {
+                msg: 'Both fields are required',
+                classes: 'alert alert-danger text-center text-uppercase p3'
+            }
+            dispatch( showAlertAction(alert) );
+
             return;
         }
         // If no errors

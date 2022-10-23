@@ -11,5 +11,10 @@ export default function(state = initialState, action) {
     switch(action.type) {
         default:
             return state;
+        case SHOW_ALERT:
+            return {
+                ...state,
+                alert: action.payload
+            }
     }
 }
