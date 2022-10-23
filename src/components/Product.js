@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { deleteProductAction } from "../actions/productActions";
+import { deleteProductAction, getProductToEdit } from "../actions/productActions";
 import Swal from "sweetalert2";
 
 const Product = ({ product }) => {
@@ -34,6 +34,7 @@ const Product = ({ product }) => {
 
     // Function to redirect in a programmed way
     const redirectToEdit = product => {
+        dispatch( getProductToEdit(product) );
         navigate(`/products/edit/${product.id}`);
     }
     return ( 
