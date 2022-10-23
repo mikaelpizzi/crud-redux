@@ -11,12 +11,6 @@ const EditProduct = () => {
     // Use useDispatch for getting action functions
     const dispatch = useDispatch();
 
-    // New product state
-    // const [ product, saveProduct ] = useState({
-    //     name: '',
-    //     price: ''
-    // });
-
     // Component's state
     const [ name, saveName ] = useState('');
     const [ price, savePrice ] = useState(0);
@@ -24,7 +18,6 @@ const EditProduct = () => {
     // Product to edit
     const editproduct = useSelector( state => state.products.editproduct );
 
-    
     // Fill state automatically with useEffect
     useEffect(() => {
         saveName(editproduct.name);
