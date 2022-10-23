@@ -16,6 +16,7 @@ const NewProduct = () => {
     // Access store state
     const loading = useSelector( state => state.products.loading );
     const error = useSelector( state => state.products.error );
+    const alert = useSelector( state => state.alert.alert )
     
     // Call action from productActions
     const addProduct = product => dispatch( createNewProductAction(product) );
@@ -30,11 +31,11 @@ const NewProduct = () => {
         // Validate form
         if (name.trim() === '' || price <= 0 ) {
 
-            const alert = {
+            const error = {
                 msg: 'Both fields are required',
                 classes: 'alert alert-danger text-center text-uppercase p3'
             }
-            dispatch( showAlertAction(alert) );
+            dispatch( showAlertAction(error) );
 
             return;
         }
@@ -58,6 +59,8 @@ const NewProduct = () => {
                         <h2 className="text-center mb-4 font-weight-bold">
                             Add New Product
                         </h2>
+
+                        { alert ? <p className={alert.classes}>{alert.msg}</p> : null }
 
                         <form
                             onSubmit={submitNewProduct}

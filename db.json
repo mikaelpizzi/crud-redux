@@ -29,6 +29,11 @@
       "name": "Pineapple",
       "price": 4,
       "id": 16
+    },
+    {
+      "name": "Keyboard",
+      "price": 50,
+      "id": 17
     }
   ]
 }
