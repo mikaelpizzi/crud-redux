@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { createNewProductAction } from "../actions/productActions";
 
-const NewProduct = ({ history }) => {
+const NewProduct = () => {
 
     // Component's state
     const [ name, saveName ] = useState('');
