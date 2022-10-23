@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { deleteProductAction } from "../actions/productActions";
 import Swal from "sweetalert2";
 
@@ -8,6 +8,9 @@ const Product = ({ product }) => {
     
     // Use useDispatch for getting action functions
     const dispatch = useDispatch();
+ 
+    // Enable useNavigate to redirect user
+    const navigate = useNavigate();
 
     // Confirm delete
     const confirmDeleteProduct = id => {
@@ -27,16 +30,22 @@ const Product = ({ product }) => {
                 dispatch( deleteProductAction(id) );
             }
         })
+    }
 
+    // Function to redirect in a programmed way
+    const redirectToEdit = product => {
+        navigate(`/products/edit/${product.id}`);
     }
     return ( 
         <tr>
             <td>{name}</td>
             <td> <span className="font-weight-bold">$ {price}</span></td>
             <td className="acciones">
-                <Link to={`/products/edit/${id}`} className="btn btn-primary mr-2">
-                    Edit
-                </Link>
+                <button 
+                    type="button" 
+                    className="btn btn-primary mr-2"
+                    onClick={() => redirectToEdit(product)}
+                >Edit</button>
                 <button
                     type="button"
                     className="btn btn-danger"
