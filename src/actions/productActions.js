@@ -9,7 +9,6 @@ import {
     PRODUCT_DELETE_SUCCESS,
     PRODUCT_DELETE_ERROR,
     GET_PRODUCT_EDIT,
-    START_PRODUCT_EDITION,
     PRODUCT_EDIT_SUCCESS,
     PRODUCT_EDIT_ERROR
 } from "../types";
@@ -150,7 +149,6 @@ const getProductAction = product => ({
 // Edit a registry in API and state
 export function editProductAction(product) {
     return async (dispatch) => {
-        dispatch( startProductEdition() );
 
         try {
             axiosClient.put(`/products/${product.id}`, product);
@@ -160,10 +158,6 @@ export function editProductAction(product) {
         }
     }
 }
-
-const startProductEdition = () => ({
-    type: START_PRODUCT_EDITION
-})
 
 const productEditSuccess = product => ({
     type: PRODUCT_EDIT_SUCCESS,
