@@ -60,7 +60,7 @@ const addProductError = status => ({
 })
 
 // Function to download the products from database
-export function getProductsAction() => {
+export function getProductsAction() {
     return async (dispatch) => {
         dispatch( downloadProducts() );
 
