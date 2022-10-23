@@ -29,6 +29,21 @@
       "name": "Mouse Logitech",
       "price": 20,
       "id": 13
+    },
+    {
+      "name": "Apple",
+      "price": 2,
+      "id": 14
+    },
+    {
+      "name": "Potato",
+      "price": 1,
+      "id": 15
+    },
+    {
+      "name": "Pineapple",
+      "price": 4,
+      "id": 16
     }
   ]
 }

@@ -4,6 +4,7 @@ import {
     ADD_PRODUCT_ERROR
 } from "../types";
 import axiosClient from "../config/axios";
+import Swal from "sweetalert2";
 
 // Create new products 
 export function createNewProductAction(product) {
@@ -12,14 +13,28 @@ export function createNewProductAction(product) {
 
         try {
             // Insert in API
-            await axiosClient.post('/prodducts', product);
+            await axiosClient.post('/produdcts', product);
 
             // If all went ok, update state
             dispatch( addProductSuccess(product) );
+
+            // Alert
+            Swal.fire(
+                'Correct',
+                'The product was added successfully',
+                'success'
+            )
         } catch (error) {
             console.log(error);
             // If there's an error, update state
             dispatch( addProductError(true) );
+
+            // Error alert
+            Swal.fire({
+                icon: 'error',
+                title: 'There was an error',
+                text: 'There was an error, please try again'
+            })
         }
     }
 }

@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { createNewProductAction } from "../actions/productActions";
 
-const NewProduct = () => {
+const NewProduct = ({ history }) => {
 
     // Component's state
     const [ name, saveName ] = useState('');
@@ -18,7 +19,9 @@ const NewProduct = () => {
     // Call action from productActions
     const addProduct = product => dispatch( createNewProductAction(product) );
     
-    
+    // Use useNavigate to redirect user
+    let navigate = useNavigate();
+
     // When user submits form
     const submitNewProduct = e => {
         e.preventDefault();
@@ -34,6 +37,9 @@ const NewProduct = () => {
             name,
             price
         });
+
+        // Redirect home
+        navigate('/');
     }
     
     return (
