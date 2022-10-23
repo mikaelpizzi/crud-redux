@@ -154,6 +154,7 @@ export function editProductAction(product) {
             axiosClient.put(`/products/${product.id}`, product);
             dispatch( productEditSuccess(product) );
         } catch (error) {
+            console.log(error);
             dispatch( productEditError() );
         }
     }

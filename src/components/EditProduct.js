@@ -12,10 +12,14 @@ const EditProduct = () => {
     const dispatch = useDispatch();
 
     // New product state
-    const [ product, saveProduct ] = useState({
-        name: '',
-        price: ''
-    });
+    // const [ product, saveProduct ] = useState({
+    //     name: '',
+    //     price: ''
+    // });
+
+    // Component's state
+    const [ name, saveName ] = useState('');
+    const [ price, savePrice ] = useState(0);
 
     // Product to edit
     const editproduct = useSelector( state => state.products.editproduct );
@@ -23,22 +27,19 @@ const EditProduct = () => {
     
     // Fill state automatically with useEffect
     useEffect(() => {
-        saveProduct(editproduct);
+        saveName(editproduct.name);
+        savePrice(editproduct.price);
     }, [editproduct]); 
 
-    // Read data from form
-    const onChangeInput = e => {
-        saveProduct({
-            ...product,
-            [e.target.name]: e.target.value
-        })
-    }
-    const { name, price } = product;
-
+    // When user submits, edit product in UI and database
     const onSubmitEditProduct = e => {
         e.preventDefault();
 
-        dispatch( editProductAction(product) );
+        dispatch( editProductAction({
+            name,
+            price,
+            id: editproduct.id
+        }) );
 
         navigate('/');
     }
@@ -63,7 +64,7 @@ const EditProduct = () => {
                                     placeholder="Product Name"
                                     name="name"
                                     value={name}
-                                    onChange={onChangeInput}
+                                    onChange={ e => saveName(e.target.value) }
                                 />
                             </div>
 
@@ -75,7 +76,7 @@ const EditProduct = () => {
                                     placeholder="Product Price"
                                     name="price"
                                     value={price}
-                                    onChange={onChangeInput}
+                                    onChange={ e => savePrice( Number(e.target.value) ) }
                                 />
                             </div> 
 

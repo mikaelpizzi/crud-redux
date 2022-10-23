@@ -2,7 +2,7 @@
   "products": [
     {
       "name": "Lemon Juice",
-      "price": "90",
+      "price": 40,
       "id": 9
     },
     {
