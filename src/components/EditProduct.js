@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { editProductAction } from "../actions/productActions";
 
 const EditProduct = () => {
 
@@ -7,6 +8,12 @@ const EditProduct = () => {
 
     if (!product) return null;
     const { name, price, id } = product;
+
+    const onSubmitEditProduct = e => {
+        e.preventDefault();
+
+        editProductAction();
+    }
 
     return (  
         <div className="row justify-content-center">
@@ -17,7 +24,9 @@ const EditProduct = () => {
                             Edit Product
                         </h2>
 
-                        <form>
+                        <form
+                            onSubmit={onSubmitEditProduct}
+                        >
                             <div className="form-group">
                                 <label>Product Name</label>
                                 <input
