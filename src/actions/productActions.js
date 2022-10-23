@@ -170,6 +170,6 @@ const productEditSuccess = product => ({
     payload: product
 })
 
-const productEditError = () => {
+const productEditError = () => ({
     type: PRODUCT_EDIT_ERROR
-}
+})
