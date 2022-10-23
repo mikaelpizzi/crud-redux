@@ -1,19 +1,29 @@
 {
-    "products": [
-      {
-        "name": "Rib Eye",
-        "price": "500",
-        "id": 7
-      },
-      {
-        "name": "Lemon Juice",
-        "price": 100,
-        "id": 9
-      },
-      {
-        "name": "1",
-        "price": 2,
-        "id": 10
-      }
-    ]
+  "products": [
+    {
+      "name": "Rib Eye",
+      "price": "500",
+      "id": 7
+    },
+    {
+      "name": "Lemon Juice",
+      "price": 100,
+      "id": 9
+    },
+    {
+      "name": "1",
+      "price": 2,
+      "id": 10
+    },
+    {
+      "name": "Tequila",
+      "price": 10,
+      "id": 11
+    },
+    {
+      "name": "Grass Butter",
+      "price": 12,
+      "id": 12
+    }
+  ]
 }

@@ -3,15 +3,22 @@ import {
     ADD_PRODUCT_SUCCESS,
     ADD_PRODUCT_ERROR
 } from "../types";
+import axiosClient from "../config/axios";
 
 // Create new products 
 export function createNewProductAction(product) {
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch( addProduct() );
 
         try {
+            // Insert in API
+            await axiosClient.post('/prodducts', product);
+
+            // If all went ok, update state
             dispatch( addProductSuccess(product) );
         } catch (error) {
+            console.log(error);
+            // If there's an error, update state
             dispatch( addProductError(true) );
         }
     }
