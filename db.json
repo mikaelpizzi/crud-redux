@@ -24,6 +24,11 @@
       "name": "Grass Butter",
       "price": 12,
       "id": 12
+    },
+    {
+      "name": "Mouse Logitech",
+      "price": 20,
+      "id": 13
     }
   ]
 }

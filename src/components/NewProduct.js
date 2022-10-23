@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { createNewProductAction } from "../actions/productActions";
 
 const NewProduct = () => {
@@ -11,6 +11,10 @@ const NewProduct = () => {
     // Use useDispatch that returns a function
     const dispatch = useDispatch();
 
+    // Access store state
+    const loading = useSelector( state => state.products.loading );
+    const error = useSelector( state => state.products.error );
+    
     // Call action from productActions
     const addProduct = product => dispatch( createNewProductAction(product) );
     
@@ -73,6 +77,9 @@ const NewProduct = () => {
                                 className="btn btn-primary font-weight-bold text-uppercase d-block w-100"
                             >Add</button>
                         </form>
+
+                        { loading ? <p>Loading...</p> : null }
+                        { error ? <p className="alert alert-danger p2 mt-4 text-center">There was an error</p> : null }
                     </div>
                 </div>
             </div>
