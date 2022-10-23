@@ -14,3 +14,14 @@ const showAlert = alert => ({
     type: SHOW_ALERT,
     payload: alert
 })
+
+// Hide alert
+export function hideAlertAction() {
+    return (dispatch) => {
+        dispatch( hideAlert() );
+    }
+}
+
+const hideAlert = () => ({
+    type: HIDE_ALERT,
+})

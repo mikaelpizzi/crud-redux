@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { deleteProductAction, getProductToEdit } from "../actions/productActions";
 import Swal from "sweetalert2";
 

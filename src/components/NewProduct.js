@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { showAlertAction } from "../actions/alertActions";
+import { hideAlertAction, showAlertAction } from "../actions/alertActions";
 import { createNewProductAction } from "../actions/productActions";
 
 const NewProduct = () => {
@@ -40,6 +40,7 @@ const NewProduct = () => {
             return;
         }
         // If no errors
+        dispatch( hideAlertAction() );
 
         // Create new product
         addProduct({
