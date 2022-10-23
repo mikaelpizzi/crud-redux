@@ -1,8 +1,15 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { editProductAction } from "../actions/productActions";
 
 const EditProduct = () => {
+
+    // Use useNavigate to redirect user
+    let navigate = useNavigate();
+
+    // Use useDispatch for getting action functions
+    const dispatch = useDispatch();
 
     // New product state
     const [ product, saveProduct ] = useState({
@@ -26,12 +33,14 @@ const EditProduct = () => {
             [e.target.name]: e.target.value
         })
     }
-    const { name, price, id } = product;
+    const { name, price } = product;
 
     const onSubmitEditProduct = e => {
         e.preventDefault();
 
-        editProductAction();
+        dispatch( editProductAction(product) );
+
+        navigate('/');
     }
 
     return (  

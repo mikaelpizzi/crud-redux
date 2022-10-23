@@ -2,12 +2,12 @@
   "products": [
     {
       "name": "Lemon Juice",
-      "price": 100,
+      "price": "93",
       "id": 9
     },
     {
       "name": "Grass Butter",
-      "price": 12,
+      "price": "17",
       "id": 12
     },
     {

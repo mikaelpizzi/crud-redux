@@ -139,8 +139,6 @@ const productDeleteError = () => ({
 export function getProductToEdit(product) {
     return (dispatch) => {
         dispatch( getProductAction(product) );
-
-
     }
 }
 
@@ -152,18 +150,26 @@ const getProductAction = product => ({
 // Edit a registry in API and state
 export function editProductAction(product) {
     return async (dispatch) => {
-        dispatch( startProductEdition(product) );
+        dispatch( startProductEdition() );
 
         try {
-            const result = await axiosClient.put(`/products/${product.id}`, product);
-            console.log(result);
+            axiosClient.put(`/products/${product.id}`, product);
+            dispatch( productEditSuccess(product) );
         } catch (error) {
-            
+            dispatch( productEditError() );
         }
     }
 }
 
-const startProductEdition = product => ({
-    type: START_PRODUCT_EDITION,
+const startProductEdition = () => ({
+    type: START_PRODUCT_EDITION
+})
+
+const productEditSuccess = product => ({
+    type: PRODUCT_EDIT_SUCCESS,
     payload: product
 })
+
+const productEditError = () => {
+    type: PRODUCT_EDIT_ERROR
+}
