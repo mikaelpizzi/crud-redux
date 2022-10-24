@@ -35,7 +35,7 @@ const Product = ({ product }) => {
     // Function to redirect in a programmed way
     const redirectToEdit = product => {
         dispatch( getProductToEdit(product) );
-        navigate(`/products/edit/${product.id}`);
+        navigate(`/crud-redux/products/edit/${product.id}`);
     }
     return ( 
         <tr>

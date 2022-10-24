@@ -18,8 +18,9 @@ function App() {
         <div className="container mt-5">
           <Routes>
             <Route exact path="/" element={<Products />} />
-            <Route exact path="/products/new" element={<NewProduct />} />
-            <Route exact path="/products/edit/:id" element={<EditProduct />} />
+            <Route exact path="/crud-redux" element={<Products />} />
+            <Route exact path="/crud-redux/products/new" element={<NewProduct />} />
+            <Route exact path="/crud-redux/products/edit/:id" element={<EditProduct />} />
           </Routes>
         </div>
       </Provider>
