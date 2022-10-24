@@ -34,7 +34,7 @@ const EditProduct = () => {
             id: editproduct.id
         }) );
 
-        navigate('/crud-redux');
+        navigate('/');
     }
 
     return (  

@@ -49,7 +49,7 @@ const NewProduct = () => {
         });
 
         // Redirect home
-        navigate('/crud-redux');
+        navigate('/');
     }
     
     return (
