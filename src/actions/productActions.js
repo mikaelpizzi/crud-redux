@@ -71,9 +71,11 @@ export function getProductsAction() {
         dispatch( downloadProducts() );
 
         try {
-            const response = await axiosClient.get('/products');
-
-            dispatch( productDownloadSuccess(response.data) );
+            setTimeout(async () => {
+                const response = await axiosClient.get('/products');
+    
+                dispatch( productDownloadSuccess(response.data) );  
+            }, 800);
         } catch (error) {
             console.log(error);
             dispatch( productDownloadError() );
