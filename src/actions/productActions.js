@@ -77,6 +77,12 @@ export function getProductsAction() {
         } catch (error) {
             console.log(error);
             dispatch( productDownloadError() );
+
+            Swal.fire({
+                icon: 'error',
+                title: 'There was an error',
+                text: 'There was an error, please try again'
+            })
         }
 
   
@@ -116,6 +122,12 @@ export function deleteProductAction(id) {
         } catch (error) {
             console.log(error);
             dispatch( productDeleteError() );
+
+            Swal.fire({
+                icon: 'error',
+                title: 'There was an error',
+                text: 'There was an error, please try again'
+            })
         }
     }
 }
@@ -153,9 +165,22 @@ export function editProductAction(product) {
         try {
             axiosClient.put(`/products/${product.id}`, product);
             dispatch( productEditSuccess(product) );
+            
+            // If product was edited, show alert
+            Swal.fire(
+                'Correct',
+                'The product was edited successfully',
+                'success'
+            )
         } catch (error) {
             console.log(error);
             dispatch( productEditError() );
+
+            Swal.fire({
+                icon: 'error',
+                title: 'There was an error',
+                text: 'There was an error, please try again'
+            })
         }
     }
 }
